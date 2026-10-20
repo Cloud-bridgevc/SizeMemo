@@ -43,7 +43,7 @@ export function Sidebar({ dataMode, aiMode }: { dataMode: string; aiMode: string
   const isActive = (href: string) => href === active;
   return (
     <aside className="sidebar">
-      <Link href="/" className="wordmark">
+      <Link href="/" className="wordmark" aria-label="SizeMemo home">
         Size<em>Memo</em>
       </Link>
       <div className="brand">Maison Halden · demo workspace</div>

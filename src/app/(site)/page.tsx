@@ -1,5 +1,10 @@
 import Link from "next/link";
 
+const TEAM = [
+  { name: "Moses Marvin", role: "Founder & CEO" },
+  { name: "Jude Zamani", role: "Co-Founder & CTO" },
+];
+
 export default function Home() {
   return (
     <>
@@ -135,6 +140,30 @@ export default function Home() {
               Recommendations are guidance. Self-measurement varies by a centimetre or two, fabrics behave differently, and taste is personal —
               so every result carries a confidence level and says when a shopper is between sizes.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="team" style={{ scrollMarginTop: 72, borderTop: "1px solid var(--line)" }}>
+        <div className="container">
+          <div className="eyebrow">Team</div>
+          <h2 style={{ marginTop: 12 }}>The people behind SizeMemo.</h2>
+          <div className="grid g2" style={{ marginTop: 40, maxWidth: 760 }}>
+            {TEAM.map((m) => (
+              <div key={m.name} className="card row" style={{ gap: 18, flexWrap: "nowrap" }}>
+                <div
+                  aria-hidden
+                  className="display"
+                  style={{ width: 64, height: 64, borderRadius: 32, background: "var(--beige)", display: "grid", placeItems: "center", fontSize: "1.6rem", color: "var(--burgundy)", flex: "none" }}
+                >
+                  {m.name.split(" ").map((w) => w[0]).join("")}
+                </div>
+                <div>
+                  <h3 style={{ margin: 0 }}>{m.name}</h3>
+                  <div className="small muted">{m.role}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

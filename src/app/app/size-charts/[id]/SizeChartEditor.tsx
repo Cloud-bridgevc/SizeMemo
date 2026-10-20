@@ -126,7 +126,14 @@ export function SizeChartEditor({
                       onChange={(e) => setGrades({ ...grades, [pom]: e.target.value })}
                       aria-label={`${POM_LABELS[pom]} grade per size`}
                     />
-                    <button className="btn ghost sm" onClick={() => applyGrade(pom)} title="Fill all sizes from M using this grade">Apply</button>
+                    <button
+                      className="btn ghost sm"
+                      onClick={() => applyGrade(pom)}
+                      disabled={!grades[pom] || c.specs["M"]?.[pom] == null}
+                      title={c.specs["M"]?.[pom] == null ? "Enter the size M value first" : "Fill all sizes from M using this grade"}
+                    >
+                      Apply
+                    </button>
                   </div>
                 </td>
               </tr>

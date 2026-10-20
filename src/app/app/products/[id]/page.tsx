@@ -8,6 +8,14 @@ import { CATEGORY_POMS, FEEDBACK_LABELS } from "@/lib/types";
 import { MeasurementEditor } from "./MeasurementEditor";
 import { ImagePanel } from "./ImagePanel";
 import { s3Configured } from "@/lib/integrations/s3";
+import { StatusToggle } from "./StatusToggle";
+import { getRepository } from "@/lib/data";
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const p = await (await getRepository()).getProduct(id);
+  return { title: p?.name ?? "Product" };
+}
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -36,7 +44,9 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
           </p>
         </div>
         <div className="row">
+          {product.status === "draft" && <span className="badge">Draft</span>}
           {c && <ConsistencyBadge status={c.status} />}
+          <StatusToggle id={product.id} status={product.status} />
           <Link className="btn ghost sm" href={`/app/compare?a=${product.id}`}>Compare</Link>
           <Link className="btn sm" href={`/app/recommend?product=${product.id}`}>Try a recommendation</Link>
         </div>

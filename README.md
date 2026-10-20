@@ -1,5 +1,7 @@
 # SizeMemo
 
+**https://sizememo.site** · [LinkedIn](https://www.linkedin.com/company/sizememo/)
+
 Apparel sizing and fit intelligence for fashion brands and online retailers: garment measurement management,
 deterministic size recommendations, AI-assisted return feedback classification, size consistency monitoring and fit
 insights. Includes a public marketing site with a working, measurement-based fit demonstration.

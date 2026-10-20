@@ -118,7 +118,7 @@ export default async function FeedbackPage({ searchParams }: { searchParams: Pro
                     )}
                   </td>
                   <td>
-                    <ReviewControls id={f.id} category={c?.category} area={c?.area} reviewed={f.reviewed} />
+                    <ReviewControls key={`${f.id}-${c?.category}-${c?.area}-${f.reviewed}`} id={f.id} category={c?.category} area={c?.area} reviewed={f.reviewed} />
                   </td>
                 </tr>
               );

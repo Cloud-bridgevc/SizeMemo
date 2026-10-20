@@ -18,6 +18,15 @@ export function FitDemo({ products, profiles }: { products: Product[]; profiles:
   const [body, setBody] = useState<Partial<Record<BodyMeasure, number>>>(profiles[0].body);
   const [pref, setPref] = useState<FitPreference>(profiles[0].preference);
 
+  /** Load a profile and, if its measurements don't suit the current garment, switch to one that does. */
+  function applyProfile(p: CustomerProfile) {
+    setBody(p.body);
+    setPref(p.preference);
+    const score = (cat: Category) => BODY_FOR[cat].filter((k) => p.body[k] != null).length;
+    const best = products.reduce((a, x) => (score(x.category) > score(a.category) ? x : a), product);
+    if (score(best.category) > score(product.category)) setProductId(best.id);
+  }
+
   const input = useMemo(() => {
     const keys = BODY_FOR[product.category];
     return Object.fromEntries(keys.filter((k) => body[k]).map((k) => [k, body[k]!])) as Partial<Record<BodyMeasure, number>>;
@@ -45,7 +54,7 @@ export function FitDemo({ products, profiles }: { products: Product[]; profiles:
         <div className="eyebrow">2 · Shopper measurements</div>
         <div className="row" style={{ gap: 6 }}>
           {profiles.map((p) => (
-            <button key={p.id} className="btn ghost sm" onClick={() => (setBody(p.body), setPref(p.preference))} title={p.note}>
+            <button key={p.id} className="btn ghost sm" onClick={() => applyProfile(p)} title={p.note}>
               {p.label.split(" — ")[0]}
             </button>
           ))}

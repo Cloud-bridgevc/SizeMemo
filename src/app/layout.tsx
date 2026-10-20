@@ -6,6 +6,9 @@ const serif = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "6
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sizememo.site"),
+  applicationName: "SizeMemo",
+  openGraph: { siteName: "SizeMemo", url: "https://sizememo.site", type: "website" },
   title: { default: "SizeMemo — Apparel fit intelligence", template: "%s · SizeMemo" },
   description:
     "Measurement-based size recommendations, return feedback analysis and size consistency monitoring for fashion brands and online retailers.",

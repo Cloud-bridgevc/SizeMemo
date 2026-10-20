@@ -3,6 +3,12 @@ import { getRepository } from "@/lib/data";
 import { CATEGORY_POMS, type SizeChart } from "@/lib/types";
 import { SizeChartEditor } from "./SizeChartEditor";
 
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  if (id === "new") return { title: "New size chart" };
+  return { title: (await (await getRepository()).getSizeChart(id))?.name ?? "Size chart" };
+}
+
 export default async function SizeChartPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const repo = await getRepository();
