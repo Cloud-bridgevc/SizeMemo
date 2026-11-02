@@ -222,3 +222,7 @@ table.data a:hover { color: var(--burgundy); }
 .check-list li::before { content: "—"; position: absolute; left: 0; color: var(--burgundy); }
 .marquee { display: flex; gap: 48px; flex-wrap: wrap; justify-content: center; font-family: var(--serif); font-size: 1.3rem; color: var(--muted); font-style: italic; }
 .ticket { font-family: var(--sans); background: #fffdf9; border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 13px; }
+
+/* Keep wide tables inside their container on small screens. */
+.split > * { min-width: 0; }
+.hero-figure { overflow-x: auto; }

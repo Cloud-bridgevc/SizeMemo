@@ -1,0 +1,21 @@
+{
+  "name": "SizeMemo",
+  "short_name": "SizeMemo",
+  "description": "Apparel sizing and fit intelligence for fashion brands and online retailers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#6f2435",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

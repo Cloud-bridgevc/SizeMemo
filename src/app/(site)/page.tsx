@@ -1,9 +1,6 @@
 import Link from "next/link";
 
-const TEAM = [
-  { name: "Moses Marvin", role: "Founder & CEO" },
-  { name: "Jude Zamani", role: "Co-Founder & CTO" },
-];
+import { GlowPill, GlowTop, GlowMid, GlowTeam } from "@/components/Glow";
 
 export default function Home() {
   return (
@@ -11,6 +8,7 @@ export default function Home() {
       <section className="hero">
         <div className="container split">
           <div>
+            <GlowPill />
             <div className="eyebrow">Apparel fit intelligence</div>
             <h1 style={{ marginTop: 16 }}>
               Sizing that <em>remembers</em> every measurement.
@@ -47,6 +45,8 @@ export default function Home() {
       </section>
 
       <hr className="rule" />
+
+      <GlowTop />
 
       <section className="section">
         <div className="container">
@@ -125,6 +125,8 @@ export default function Home() {
         </div>
       </section>
 
+      <GlowMid />
+
       <section className="section" style={{ background: "var(--ink)", color: "var(--paper)" }}>
         <div className="container split">
           <div>
@@ -144,29 +146,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" id="team" style={{ scrollMarginTop: 72, borderTop: "1px solid var(--line)" }}>
-        <div className="container">
-          <div className="eyebrow">Team</div>
-          <h2 style={{ marginTop: 12 }}>The people behind SizeMemo.</h2>
-          <div className="grid g2" style={{ marginTop: 40, maxWidth: 760 }}>
-            {TEAM.map((m) => (
-              <div key={m.name} className="card row" style={{ gap: 18, flexWrap: "nowrap" }}>
-                <div
-                  aria-hidden
-                  className="display"
-                  style={{ width: 64, height: 64, borderRadius: 32, background: "var(--beige)", display: "grid", placeItems: "center", fontSize: "1.6rem", color: "var(--burgundy)", flex: "none" }}
-                >
-                  {m.name.split(" ").map((w) => w[0]).join("")}
-                </div>
-                <div>
-                  <h3 style={{ margin: 0 }}>{m.name}</h3>
-                  <div className="small muted">{m.role}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <GlowTeam />
 
       <section className="section">
         <div className="container" style={{ textAlign: "center" }}>

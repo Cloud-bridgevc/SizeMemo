@@ -20,6 +20,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             Size<em>Memo</em>
           </Link>
           <nav className="site-links" aria-label="Main">
+            <Link href="/#problem" className="hide-sm">Problem</Link>
             <Link href="/use-cases" className="hide-sm">Use cases</Link>
             <Link href="/fit-demo">Fit demo</Link>
             <Link href="/methodology" className="hide-sm">Methodology</Link>
@@ -54,6 +55,8 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               <br />
               <Link href="/request-demo">Request a demo</Link>
               <br />
+              <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link>
+              <br />
               <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="row" style={{ display: "inline-flex", gap: 6 }}>
                 <LinkedInIcon />
                 LinkedIn
@@ -62,7 +65,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
           </div>
         </div>
         <div className="container row between" style={{ marginTop: 32, paddingTop: 20, borderTop: "1px solid var(--line)" }}>
-          <span>© {new Date().getFullYear()} SizeMemo · sizememo.site</span>
+          <span>© {new Date().getFullYear()} SizeMemo · sizememo.site · Founded by Moses Marvin (Founder/CEO) &amp; Jude Zamani (Co-founder/CTO)</span>
           <span className="tiny">Garments, customers and returns shown are fictional demonstration data for the imaginary label Maison Halden.</span>
         </div>
       </footer>

@@ -50,3 +50,16 @@ DATABASE_URL=postgres://… npm run db:migrate && npm run db:seed
 
 Recommendations compare garment measurements with measurements the shopper enters. SizeMemo does not measure bodies
 and does not estimate measurements from photographs. See `/methodology`.
+
+## Launch readiness (glow-up)
+
+- Home page: problem section with three sourced statistics, what-we-solve, comparison table, AI section, founder cards, roadmap and FAQ, with scroll-reveal motion that respects reduced motion. Sections live in `src/components/Glow.tsx` (generated markup), styles in `src/app/glow.css`, motion in `public/glow.js`.
+- New routes: `/privacy`, `/terms` (review drafts). Footer credits the founders.
+- Ship assets: `opengraph-image.png`, `twitter-image.png`, `apple-icon.png`, `icon.svg`, `public/manifest.webmanifest`, icons, founders JSON-LD; sitemap includes the new routes.
+- Fixed a small horizontal overflow of the hero table on phones.
+
+### Content to confirm before launch
+- Contact email `hello@sizememo.site` is a placeholder — create the forward or replace it.
+- Statistics (Coresight Research; NRF & Happy Returns 2024) — re-check figures and links.
+- Founder bios describe roles only; replace with confirmed biographies.
+- Privacy notice and terms need operator details and governing law.
